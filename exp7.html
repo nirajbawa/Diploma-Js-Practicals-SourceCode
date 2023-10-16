@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>File the Details : </h1>
+    <form action="" id="application">
+        <input type="text" name="name" placeholder="Enter Name : " id="name" onfocus="verifyEmptyName(this)" onblur="verifyFillName(this)">
+        <br>
+        <br>
+        <input type="email" name="email" placeholder="Enter Email : " id="email" onfocus="verifyEmptyName(this)" onblur="verifyFillName(this)">
+        <br>
+        <br>
+        <label for="bod">Enter Birthdate</label>
+        <br>
+        <br>
+        <input type="date" name="bod" id="bod" onchange="printSelectedDate(this)">
+        <br>
+        <br>
+        <label for="class">select class : </label>
+        <br>
+        <br>
+        <select name="class" id="class" onchange="printSelected(this)">
+            <option value="first">first</option>
+            <option value="second">second</option>
+        </select>
+        <br>
+        <br>
+        <label for="checkbox">select languages : </label>
+        <br>
+        <br>
+        <label for="python" >python</label>
+        <input type="checkbox" id="python" name="python" value="python" onclick="printSelected(this)">
+        <br>
+        <br>
+        <label for="javascript">javascript</label>
+        <input type="checkbox" name="javascript" value="javascript" id="javascript" onclick="printSelected(this)">
+        <br>
+        <br>
+        <label for="gender">select gender : </label>
+        <br>
+        <label for="male">male</label>
+        <input type="radio" name="gender" id="gender" value="male" onchange="printSelected(this)">
+        <label for="female">female</label>
+        <input type="radio" name="gender" id="gender" value="female" onchange="printSelected(this)">
+        <br>
+        <br>
+        <input type="button" name="submit" id="submit" value="submit" onclick="alertMsg(this)">
+    </form>
+
+
+    <script>
+        const verifyEmptyName = (e) =>{
+            if(e.value==="")
+            {
+                e.style.outline = "2px solid red"
+            }
+        }
+
+        const verifyFillName = (e) =>{
+            if(e.value!=="")
+            {
+                e.style.outline = "2px solid green"
+            }
+            else
+            {
+                e.style.outline = "2px solid red"
+            }
+        }
+
+        const printSelected = (e)=>{
+            alert(e.value)
+        }
+
+        const alertMsg = (e) =>{
+            alert(e.value)
+        }
+    </script>
+</body>
+</html>

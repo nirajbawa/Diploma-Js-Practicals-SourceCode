@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr = Array();
+
+        <!-- insert values in arrays -->
+        
+        for(let i = 0; i<5; i++)
+        {
+            arr.push(prompt("enter array element "+i+" : "));
+        }
+
+        arr.forEach((value, index)=>document.write(`${index} : ${value} <br>`));
+
+        let r =  arr.reduce((pr, cur)=>{
+                return parseInt(pr)+parseInt(cur);
+        });
+
+        document.write(`Reduced Array Is : ${r} <br>`);
+
+        let filtredArray = arr.filter((value, index)=>{
+            return parseInt(value)%2==0
+        })
+
+        document.write(`filtred Value : ${filtredArray} <br>`);
+
+        let MappedArray = arr.map((value, index)=>{
+            return parseInt(value)+parseInt(index)
+        })
+
+        document.write("value + index = "+MappedArray+"<br>");
+
+
+        document.write("ascending order : "+(arr.sort((a, b)=>{
+            return a-b;
+        }))+"<br>");
+
+        document.write("descending order : "+(arr.sort((a, b)=>{
+            return b-a;
+        }))+"<br>");
+
+    </script>
+</body>
+</html>

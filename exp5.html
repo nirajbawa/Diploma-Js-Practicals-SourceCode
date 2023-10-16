@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let text1 = prompt("Text 1 : ");
+        let text2 = prompt("Text 2 : ");
+
+        let finalText = text1.concat(text2);
+        alert("Text : "+finalText);
+
+        finalText = text1.match(text2);
+        alert("Text : "+ finalText);
+
+        finalText = text1.search(text2);
+        alert("text : "+finalText);
+
+        finalText = text1.startsWith(text2);
+        alert("text : "+ finalText);
+    </script>
+</body>
+</html>

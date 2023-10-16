@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>cookies</h1>
+    <script>
+        // function to gey cookies in js
+
+       const setCookie = (key, val, expDay, path) =>{
+        let date  = new Date();
+        let exp = d.setTime(d.getTime+(expDay*24*60*60*1000));
+        document.cookie = `${key}=${value} ${exp} path=${path}; `
+       }
+
+       const getCookie = (key) =>{
+        let cookie = document.cookie;
+        let keyValue = cookie.search(key);
+        console.log(keyValue+key.length)
+        let value;
+        for(let i = keyValue+key.length+1; i<cookie.length; i++)
+        {
+            if(cookie.charAt(i)==";")
+            {
+                break;
+            }
+            value = cookie[i]
+        }
+        return value
+       }
+
+
+       document.write(getCookie("name"))
+        
+    </script>
+</body>
+</html>

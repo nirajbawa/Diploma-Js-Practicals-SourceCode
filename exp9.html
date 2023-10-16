@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="myform">
+        <input type="text" onfocus="document.forms.myform.submit()" name="name">
+        <input type="text" onfocus="dis()" name="email">
+    </form>
+    <script>
+        const dis = () =>{
+            document.forms.myform.email.disabled=true
+        }
+
+        let mystr = "niraj bava";
+        document.write(mystr.length)
+        document.write("<br>")
+        document.write(mystr.replace("niraj", "hii"))
+        document.write("<br>")
+        document.write(mystr.substr(2, 5))
+        document.write("<br>")
+        document.write(mystr.substring(2, 5))
+    </script>
+</body>
+</html>

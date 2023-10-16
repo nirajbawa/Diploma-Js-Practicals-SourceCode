@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="load()" onunload="close()">
+    <center><h1>Admission Form</h1></center>
+    <form action="" onreset="reset()" onsubmit="submit()">
+        <input type="text" placeholder="Name" onkeydown="printLetter(this)">
+        <br><br>
+        <input type="email" placeholder="email" onkeyup="printLetter(this)">
+        <br><br>
+        <input type="number" placeholder="number" onkeypress="printLetter(this)">
+        <br><br>
+        <input type="submit" name="submit" value="submit">
+        <input type="reset" value="rest" >
+    </form>
+
+
+    <script>
+        const printLetter = (e) =>{
+            alert(e.value);
+        }
+        const reset = () =>{
+            alert("form reset successfully")
+        }
+        const load = () =>{
+            alert("document loaded")
+        }
+        const close = ()=>{
+            alert("document closed")
+        }
+        const submit = () =>{
+            alert("form submited")
+        }
+    </script>
+</body>
+</html>

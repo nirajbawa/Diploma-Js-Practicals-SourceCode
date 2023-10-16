@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        let op = parseInt(prompt("continue or close program (1, 0) : "));
+
+        switch(op)
+        {
+            case 1:
+                document.write("Loops and decision making <br>");
+                let emoji = ["😀", "😊", "😊", "😎"];
+        
+                let option = parseInt(prompt("Select option for loops : 1) for loop, 2) while loop, 3) for of loop, 4) for in loop, 5) for each loop"));
+                
+                if(option == 1)
+                {
+                    document.write("<br> for loop <br>");
+                    for(let i = 0; i<emoji.length; i++)
+                        document.write(`${i} : ${emoji[i]} <br>`);
+                }
+                
+                else if(option == 2)
+                {
+                    document.write("<br> while loop <br>");
+                    let i = 0;
+                    while(i<emoji.length)
+                    {
+                        document.write(`${i} : ${emoji[i]} <br>`);
+                        i++;
+                    }
+                }
+        
+                else if(option == 3)
+                {
+                    let i = 0;
+                    document.write("<br> for of loop <br>");
+                    for(let emo of emoji)
+                    {
+                        document.write(`${i} : ${emo} <br>`);
+                        i++;
+                    }
+                }
+        
+                else if(option == 4)
+                {
+                    document.write("<br> for in loop <br>");
+                    for(let i in emoji)
+                    {
+                        document.write(`${i} : ${emoji[i]} <br>`);
+                    }
+                }
+        
+                else if(option == 5)
+                {
+                    document.write("<br> for each loop <br>");
+                    emoji.forEach((value, index)=>{
+                        document.write(`${index} : ${value} <br>`);
+                    });
+                }
+                
+                else{
+                    document.write("please select correct option");
+                } 
+                break;
+            
+            case 0:
+                window.close();
+                break
+            default:
+                window.close();
+          
+        }
+        
+    </script>
+</body>
+</html>
