@@ -7,33 +7,75 @@
 </head>
 <body>
     <h1>cookies</h1>
+
+    <form name="myform">
+        <input type="text" placeholder="key" name="akey"> = <input type="text" name="avalue" placeholder="value"> <input type="number" placeholder="days" name="adays">
+        <button  type="button" onclick="set()">add</button>
+        <br>
+        <br>
+        <input type="text" placeholder="key" name="dkey">
+        <br>
+        <br>
+        <button onclick="deletec()"  type="button" >delete</button>
+        <br>
+        <br>
+        <input type="text" placeholder="Key" name="skey">
+        <br>
+        <br>
+        <button type="button" onclick="get()" >show</button>
+        <br>
+        <br>
+        <p class="cookie" id="cookie"></p>
+    </form>
+
     <script>
         // function to gey cookies in js
 
        const setCookie = (key, val, expDay, path) =>{
         let date  = new Date();
-        let exp = d.setTime(d.getTime+(expDay*24*60*60*1000));
-        document.cookie = `${key}=${value} ${exp} path=${path}; `
+        let exp = date.setTime(date.getTime()+(expDay*24*60*60*1000));
+        document.cookie = `${key}=${val}; ${exp}; path=${path}`
        }
 
        const getCookie = (key) =>{
-        let cookie = document.cookie;
-        let keyValue = cookie.search(key);
-        console.log(keyValue+key.length)
-        let value;
-        for(let i = keyValue+key.length+1; i<cookie.length; i++)
+        key = key + "=";
+        let cookie = decodeURIComponent(document.cookie);
+        let keyValues = cookie.split(";");
+        for(let i = 0; i<keyValues.length; i++)
         {
-            if(cookie.charAt(i)==";")
+            let temp = keyValues[i];
+            while(temp.charAt(0) == ' ')
             {
-                break;
+                temp = temp.substring(1);
             }
-            value = cookie[i]
+            if(temp.indexOf(key)==0)
+            {
+                return temp.substring(key.length, temp.length)
+            }
+            return ""
         }
-        return value
        }
 
+       const deleteCookie = (key) =>{
+            let date = new Date();
+            let exp = date.setMonth(date.getMonth()-1);
+            document.cookie = `${key}=; max-age=0`;
+            alert(key+" is deleted.");
+       }
 
-       document.write(getCookie("name"))
+       const set = () =>{
+            setCookie(document.forms.myform.akey.value, document.forms.myform.avalue.value, document.forms.myform.adays.value, "/")
+       }
+
+       const deletec = () =>{
+            deleteCookie(document.forms.myform.dkey.value)
+       }
+
+       const get = () =>{
+        document.getElementById("cookie").innerText = getCookie(document.forms.myform.skey.value)
+       }
+
+        
         
     </script>
 </body>
