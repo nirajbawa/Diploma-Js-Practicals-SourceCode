@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Application Form</h1>
+
+    <form action="" name="myform">
+        <input type="text" placeholder="name" name="name">
+        <br>
+        <br>
+        <input type="email" placeholder="email" name="email">
+        <br><br>
+        <input type="tel" placeholder="mobile number" name="mobile">
+        <br>
+    </form>
+
+    <script>
+        let myform = document.forms.myform;
+        let name = myform.name;
+        let email = myform.email;
+        let mobile = myform.mobile;
+
+        let regForName = new RegExp("[^0-9]", "i")
+        name.addEventListener('keypress', (e) => {
+            e.target.style.outline = `${e.target.value.match(regForName) ? " 2px lightgreen solid" : "2px red solid"}`
+        })
+
+        let regForEmail = new RegExp("^[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*@[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*$", "i")
+        email.addEventListener('keypress', (e) => {
+            e.target.style.outline = `${e.target.value.match(regForEmail) ? " 2px lightgreen solid" : "2px red solid"}`
+        })
+
+
+        let regForMobileNo = new RegExp("[0-9]", "g")
+        mobile.addEventListener('keypress', (e) => {
+            e.target.style.outline = `${e.target.value.match(regForMobileNo) ? " 2px lightgreen solid" : "2px red solid"}`
+        })
+    </script>
+</body>
+
+</html>
