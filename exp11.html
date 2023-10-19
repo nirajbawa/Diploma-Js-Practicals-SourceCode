@@ -6,6 +6,23 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <button onclick="openWindow()">open window</button>
+    <button onclick="closeWindow()">close window</button>
+    <script>
+        let Mywindow;
+        let ownWindow;
+        const openWindow = () =>
+        {
+            Mywindow = window.open("http://127.0.0.1:5500/exp11.html", "_blank", "width=200,height=200,left=50,top=50")
+            ownWindow = window.open("", "_blank", "width=200,height=200,left=100,top=100")
+            ownWindow.document.write("<h1>Niraj Bava</h1>")
+        }
+
+        const closeWindow = () =>{
+            Mywindow.close();
+            ownWindow.close();
+        }
+       
+    </script>
 </body>
 </html>
