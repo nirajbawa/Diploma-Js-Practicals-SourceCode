@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>normal menu</h1>
+    <select name="" id="">
+        <option value="1">op1</option>
+        <option value="2">op1</option>
+        <option value="3">op1</option>
+    </select>
+
+    <h1>dynamic menu</h1>
+    <select id="dep">
+        <option value="co">co</option>
+        <option value="ce">ce</option>
+        <option value="me">me</option>
+    </select>
+
+    <select id="teachers">
+
+    </select>
+
+    <script>
+        let dep = document.querySelector("#dep");
+        let teachers = document.querySelector("#teachers"); 
+        let co = ["c1", 'c2', 'c3'];
+        let me = ["m1", 'm2', 'm3'];
+        let ce = ['c1', 'c2', 'c3'];
+        dep.addEventListener('change', (e)=>{
+            let val = e.target.value
+            if(val==="co")
+            {
+                insertChilds(co)    
+            }
+            else if(val==="me")
+            {
+                insertChilds(me)
+            }
+            else if(val==="ce")
+            {
+                insertChilds(ce)
+            }
+            
+        })
+
+
+        const insertChilds = (e) =>{
+            teachers.innerHTML = ""
+            e.forEach((val, ind)=>{
+                let ele = document.createElement("option");
+                ele.innerHTML = val
+                teachers.appendChild(ele)
+            })
+        }
+
+        insertChilds(co)
+    </script>
+</body>
+</html>

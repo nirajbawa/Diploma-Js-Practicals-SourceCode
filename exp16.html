@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10% 5% 10% 5%;
+        flex-direction: column;
+        gap: 50px;
+      "
+    >
+    <h1>Navigaion Banner</h1>
+      <a href="https://www.google.com" id="link" ><img src="img1.jpeg" alt="" height="300" width="500" id="banner" /></a>
+      <div>
+        <button id="previous">previous</button>
+        <button id="next">next</button>
+      </div>
+    </div>
+
+
+    <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10% 5% 10% 5%;
+      flex-direction: column;
+      gap: 50px;
+    "
+  >
+  <h1>slider Banner</h1>
+    <a href="https://www.google.com" id="slink" ><img src="img1.jpeg" alt="" height="300" width="500" id="slider" /></a>
+  </div>
+
+    <script>
+        let banner = document.getElementById("banner");
+        let link = document.getElementById("link")
+        let previous = document.getElementById("previous");
+        let next = document.getElementById("next");
+
+        let i = 1;
+        let imgs = ['img1.jpeg', 'img2.jpeg', 'img3.jpg'];
+        let links = ['https://www.google.com', 'https://www.facebook.com', 'https://www.instagram.com'];
+
+        next.addEventListener('click', (e)=>{
+            banner.src = "./"+imgs[i];
+            link.href = links[i];
+            i++;
+            if (i>imgs.length-1)
+            {
+                i = 0;
+            }
+        })
+
+        previous.addEventListener('click', (e)=>{
+            banner.src = "./"+imgs[i];
+            link.href = links[i];
+            i--;
+            if(i<0)
+            {
+                i=imgs.length-1;
+            }
+        })
+
+        let j = 0;
+        let slider = document.querySelector('#slider');
+        let slink = document.querySelector("#slink");
+        setInterval(()=>{
+            changeslide();
+        }, 1000)
+        const changeslide = () =>{
+            slider.src = './'+imgs[j];
+            slink.href = links[j];
+            j++;
+            if(j>imgs.length-1)
+            {
+                j = 0;
+            }
+        } 
+    </script>
+  </body>
+</html>
