@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="text-align: center; display:flex; justify-content:center; flex-direction:column">
+        <h1 style="text-transform: capitalize;">matching pattern</h1>
+        <form action="" name="f1" style="display: flex; justify-content: center; flex-direction: column; padding:5% 20%; row-gap: 20px;">
+            <input type="text" name="text" placeholder="Text">
+            <input type="text" name="pattern" placeholder="Pattern">
+            <input type="text" name="mod" placeholder="mod">
+            <select name="method">
+                <option value="test">test</option>
+                <option value="match">match</option>
+                <option value="exec">exec</option>
+                <option value="search">search</option>
+            </select>
+            <input type="text" name="output" disabled>
+            <button onclick="searchPattern()" type="button">Search</button>
+        </form>
+    
+    </div>
+
+    <div style="text-align: center; display:flex; justify-content:center; flex-direction:column">
+        <h1 style="text-transform: capitalize;">replacing text with pattern</h1>
+        <form action="" name="f2" style="display: flex; justify-content: center; flex-direction: column; padding:5% 20%; row-gap: 20px;">
+            <input type="text" name="text" placeholder="Text">
+            <input type="text" name="pattern" placeholder="Pattern">
+            <input type="text" name="mod" placeholder="mod">
+            <input type="text" name="newText" placeholder="new text">
+            <input type="text" name="output" disabled>
+            <button type="button" onclick="replacePattern()">Replace</button>
+        </form>
+    
+    </div>
+
+    <script>
+        let f1Fields = {
+            text:document.forms.f1.text,
+            pattern:document.forms.f1.pattern,
+            mod:document.forms.f1.mod,
+            method:document.forms.f1.method,
+            output:document.forms.f1.output
+        }
+        
+        let f2Fields = {
+            text:document.forms.f2.text,
+            pattern:document.forms.f2.pattern,
+            mod:document.forms.f2.mod,
+            newText:document.forms.f2.newText,
+            output:document.forms.f2.output
+        }
+
+
+        function searchPattern()
+        {
+            let reg = new RegExp(f1Fields.pattern.value, f1Fields.mod.value);
+            let search;
+            switch(f1Fields.method.value)
+            {
+                case "test":
+                    search = reg.test(f1Fields.text.value);
+                    break;
+                
+                case "exec":
+                    search = reg.exec(f1Fields.text.value);
+                    break;
+                
+                case "match":
+                    search = f1Fields.text.value.match(reg);
+                    break;
+                
+                case "search":
+                    search = f1Fields.text.value.search(reg);
+                    break;
+
+                default:
+                    alert("invalid method selected...!");
+            }
+
+            if(search !== undefined)
+                f1Fields.output.value = search;
+            
+        }
+
+
+        function replacePattern()
+        {
+            let reg = new RegExp(f2Fields.pattern.value, f2Fields.mod.value);
+            let search;
+
+
+            search = f2Fields.text.value.replace(reg, f2Fields.newText.value);
+          
+            if(search !== undefined)
+                f2Fields.output.value = search;
+            
+        }
+
+    </script>
+</body>
+</html>

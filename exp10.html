@@ -26,34 +26,41 @@
         <br>
         <br>
         <p class="cookie" id="cookie"></p>
+        <input type="number" name="days" placeholder="days">
+        <button onclick="updatec()" type="button">update expiry</button>
     </form>
 
     <script>
         // function to gey cookies in js
 
-       const setCookie = (key, val, expDay, path) =>{
-        let date  = new Date();
-        let exp = date.setTime(date.getTime()+(expDay*24*60*60*1000));
-        document.cookie = `${key}=${val}; ${exp}; path=${path}`
+       const setCookie = (key, val, expDay) =>{
+        let exp = new Date(Date.now() + expDay * 24 * 60 * 60 * 1000).toUTCString();
+        document.cookie = `${key}=${val}; expires=${exp};`
        }
 
        const getCookie = (key) =>{
-        key = key + "=";
-        let cookie = decodeURIComponent(document.cookie);
-        let keyValues = cookie.split(";");
-        for(let i = 0; i<keyValues.length; i++)
+        key = key;
+        let cookies = document.cookie.split(';');
+        for(const cookie of cookies)
         {
-            let temp = keyValues[i];
-            while(temp.charAt(0) == ' ')
+            const [name, value] = cookie.trim().split('=');
+            if(key == name.trim())
             {
-                temp = temp.substring(1);
+               return value
             }
-            if(temp.indexOf(key)==0)
-            {
-                return temp.substring(key.length, temp.length)
-            }
-            return ""
         }
+        return ""
+       }
+
+       const updateOnlyExpiry = (key, day) =>{
+            let cookieValue = getCookie(key);
+            if(!cookieValue)
+            {
+                alert('invalid key...!');
+            }
+            let date = new Date(Date.now() + day * 24 * 60 * 60 * 1000).toUTCString();
+            document.cookie = `${key}=${cookieValue}; expires=${date};`;
+            alert('cookie expiry updated')
        }
 
        const deleteCookie = (key) =>{
@@ -64,7 +71,7 @@
        }
 
        const set = () =>{
-            setCookie(document.forms.myform.akey.value, document.forms.myform.avalue.value, document.forms.myform.adays.value, "/")
+            setCookie(document.forms.myform.akey.value, document.forms.myform.avalue.value, document.forms.myform.adays.value)
        }
 
        const deletec = () =>{
@@ -73,6 +80,10 @@
 
        const get = () =>{
         document.getElementById("cookie").innerText = getCookie(document.forms.myform.skey.value)
+       }
+
+       const updatec = () =>{
+            updateOnlyExpiry(document.forms.myform.akey.value, document.forms.myform.days.value);
        }
 
         
