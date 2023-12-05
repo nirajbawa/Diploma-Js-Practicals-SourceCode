@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="login">
+        <input type="text" style="width: 50% 20%; height:auto;" placeholder="id" name="id">
+        <input type="password" placeholder="password" name="pass">
+        <button onclick="show()" type="button">show</button>
+    </form>
+    <script>
+        function show()
+        {
+        alert("id : "+document.login.id.value);
+        alert("password : "+document.login.pass.value);
+        }
+    
+    </script>
+</body>
+</html>

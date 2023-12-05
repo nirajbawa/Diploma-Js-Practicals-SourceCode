@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div style="height: 100%; width: 100%; display: flex;">
+        <a href="https://google.com" id="link"><img src="https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg" id="img" alt="" width="500" height="500"></a>
+    </div>
+    <button onclick="slideChange(1)">next</button>
+    <button onclick="slideChange(-1)">backward</button>
+
+    <script>
+        let imgLinks = ["https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg", "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-james-wheeler-414612.jpg&fm=jpg", "https://cdn.pixabay.com/photo/2013/07/21/13/00/rose-165819_640.jpg"];
+        let links = ["https://google.com", "https://facebook.com", "https://instagram.com"];
+
+        let i = 0;
+        let img = document.getElementById("img");
+        let a = document.getElementById("link")
+        
+        function slideChange(index)
+        {
+            i += index;
+            if(i>imgLinks.length-1)
+            {
+                i = 0;
+            }
+            if(i<0)
+            {
+                i = imgLinks.length-1;
+            }
+            img.src = imgLinks[i];
+            a.href = links[i];
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let students = [
+            {name: "sumit", makrs:80, grade:""},
+            {name: "kalpesh", makrs:77, grade:""},
+            {name:"amit", makrs:88, grade:""},
+            {name:"tejas", makrs:93, grade:""},
+            {name:"abhishek", makrs:65, grade:""}
+        ]
+
+        for(let p of students)
+        {
+            let grade = ""
+            if(p.makrs >= 90 && p.makrs<100)
+            {
+                grade = "A";
+            }
+            else if(p.makrs>=80 && p.makrs<90){
+                grade = "B"
+            }
+            else if(p.makrs>=70 && p.makrs<80)
+            {
+                grade = "D"
+            }
+            else if(p.makrs>=60 && p.makrs<70)
+            {
+                grade = "D"
+            }
+            else if(p.makrs<60)
+            {
+                grade = "E"
+            }
+
+            p.grade = grade
+        }
+
+        console.log(students)
+        
+        for(let p of students)
+        {
+            document.write("name : "+p.name + "<br>")
+            document.write("marks : "+p.makrs + "<br>")
+            document.write("grade : "+p.grade + "<br>")
+            document.write("<br>")
+        }
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="menubar">
+        <select name="menu" onchange="redireact(event)">
+            <option value="google">google</option>
+            <option value="msbte">msbte</option>
+            <option value="yahoo">yahoo</option>
+        </select>
+    </form>
+
+
+    <script>
+       function redireact(e)
+       {
+            window.location.href = "https://"+e.target.value+".com"
+       } 
+    </script>
+</body>
+</html>

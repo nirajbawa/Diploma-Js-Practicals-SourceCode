@@ -65,8 +65,9 @@
 
        const deleteCookie = (key) =>{
             let date = new Date();
-            let exp = date.setMonth(date.getMonth()-1);
-            document.cookie = `${key}=; max-age=0`;
+            date.setMonth(date.getMonth()-1)
+            let exp = date.toUTCString();
+            document.cookie = `${key}=; expires=${exp}`;
             alert(key+" is deleted.");
        }
 
