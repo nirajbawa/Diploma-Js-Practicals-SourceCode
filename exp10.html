@@ -28,6 +28,7 @@
         <p class="cookie" id="cookie"></p>
         <input type="number" name="days" placeholder="days">
         <button onclick="updatec()" type="button">update expiry</button>
+        <button type="button" onclick="showAllCookies()">show all cookies</button>
     </form>
 
     <script>
@@ -69,6 +70,19 @@
             let exp = date.toUTCString();
             document.cookie = `${key}=; expires=${exp}`;
             alert(key+" is deleted.");
+       }
+
+       const showAllCookies = () =>{
+            let cookies = document.cookie.split(";");
+            if(cookies=="")
+            {
+                return
+            }
+            for(const cookie of cookies)
+            {
+                let [key, value] = cookie.split("=");
+                document.write(key+" : "+value+"<br>");
+            }
        }
 
        const set = () =>{
