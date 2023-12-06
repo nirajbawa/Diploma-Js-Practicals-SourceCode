@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tree menu</title>
+
+    <style>
+        .menu {
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu ul {
+            list-style: none;
+        }
+
+        .caret::before {
+            content: "\25B6";
+            margin-right: 10px;
+            display: inline-block;
+            color: black;
+        }
+
+        .caret-down::before{
+            transform: rotate(90deg);
+        }
+
+        .nested {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="menu">
+        <li> <span class="caret">home</span>
+            <ul class="nested">
+                <li>contact</li>
+                <li><span class="caret">about</span>
+                    <ul class="nested">
+                        <li>about company</li>
+                        <li><span class="caret">about owner</span>
+                            <ul class="nested">
+                                <li>mission</li>
+                                <li>vision</li>
+                                <li>contact</li>
+                            </ul>
+                        </li>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    </ul>
+
+    <script>
+        let caret = document.getElementsByClassName("caret");
+        for (let i = 0; i < caret.length; i++) {
+            caret[i].addEventListener("click", function (e) {
+                e.target.parentElement.getElementsByClassName("nested")[0].classList.toggle("active");
+                e.target.classList.toggle("caret-down");
+            })
+        }
+    </script>
+</body>
+
+</html>
