@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="myform">
+        <input type="text" name="key" placeholder="key">
+        <br>
+        <input type="text" name="value" placeholder="value">
+        <br>
+        <input type="number" name="days" placeholder="days">
+        <br>
+        <br>
+        <button type="button" onclick="setCookie()">set cookie</button>
+        <br><br>
+        <input type="text" name="dval" placeholder="dval">
+        <br>
+        <button onclick="deleteCookie()" type="button" >delete cookie</button>
+        <br>
+        <br>
+        <input type="text" placeholder="enter key" name="rkey">
+        <button onclick="readCookie()" type="button">read cookie</button>
+    </form>
+
+    <div id="box"></div>
+
+    <script>
+        let key, val, dval, days, rkey, box;
+        box = document.querySelector("#box");
+        with(document.forms)
+        {
+            key = myform.key;
+            val = myform.value;
+            dval = myform.dval;
+            days = myform.days;
+            rkey = myform.rkey;
+        }
+
+        function setCookie()
+        {
+            let date = new Date(Date.now()+parseInt(days.value)*24*60*60*1000).toUTCString();
+            document.cookie = decodeURIComponent(key.value.trim())+"="+decodeURIComponent(val.value.trim())+"; expires="+date+"; path=/";
+        }
+
+        function getCookie(str)
+        {
+            let cookies = document.cookie.split(";");
+            for(const cookie of cookies)
+            {
+                let sp = cookie.split("=");
+                let name = sp[0];
+                let val = sp[1];
+                if(str==name){
+                    return val;
+                }
+            }
+            return null;
+        }
+        function readCookie()
+        {
+            box.innerHTML = "";
+            let ck = getCookie(rkey.value);
+        
+            if(ck===null)
+            {
+                alert("cookie not found...!");
+                return null
+            }
+            box.innerHTML = rkey.value+"="+ck;
+        }
+        function deleteCookie()
+        {
+            let ck = getCookie(dval.value);
+            if(ck==null)
+            {
+                alert("invalid key..!");
+                return null;
+            }
+            let date = new Date();
+            date.setMonth(date.getMonth()-1);
+            data = date.toUTCString();
+            document.cookie = dval.value+"=; expires="+decodeURIComponent(date)+"; path=/;";
+
+        }
+    </script>
+</body>
+</html>

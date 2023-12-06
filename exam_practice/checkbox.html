@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="myform">
+        python
+        <input type="checkbox" name="python" value="python">
+        <br>
+        js
+        <input type="checkbox" name="js" value="js">
+        <br>
+        java
+        <input type="checkbox" name="java" value="java">
+        <br>
+        <br>
+
+        <div>
+            <h5>gender</h5>
+            male
+            <input type="radio" name="gender" value="male">
+            female
+            <input type="radio" name="gender" value="female">
+        </div>
+        <br>
+        <br>
+        <button type="button" onclick="submitF()">submit</button>
+    </form>
+
+    <div id="Box"></div>
+
+    <script>
+        let python, js, java, gender;
+        let box = document.querySelector("#Box");
+
+        with(document.forms)
+        {
+            python = myform.python;
+            js = myform.js;
+            java = myform.java;
+            gender = myform.gender;
+        }
+
+        function submitF()
+        {
+            box.innerHTML = "";
+            if(python.checked)
+            {
+                box.innerHTML+= "<br>"+python.value+"<br>";
+            }
+            if(js.checked)
+            {
+                box.innerHTML+= "<br>"+js.value+"<br>";
+            }
+            if(java.checked)
+            {
+                box.innerHTML+="<br>"+java.value+"<br>";
+            }
+
+            if(gender[0].checked)
+            {
+                box.innerHTML += "<br> gender : "+gender[0].value+"<br>"
+            }
+            if(gender[1].checked)
+            {
+                box.innerHTML += "<br> gender : "+gender[1].value+"<br>"
+            }
+        }
+    </script>
+</body>
+</html>

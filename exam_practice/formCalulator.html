@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="myform" style="display: flex; align-items: center; justify-content: space-between; flex-direction: column; height: 100%; width: 100%; gap: 5px 5px" >
+        <input type="text" name="num1">
+        <input type="text" name="num2">
+        <button onclick="sum()" type="button">
+            sum
+        </button>
+        <button onclick="sub()" type="button">
+            sub
+        </button>
+        <button onclick="mul()" type="button">
+            mul
+        </button>
+
+        <button onclick="div()" type="button">
+            div
+        </button>
+
+        <button onclick="mod()" type="button">
+            mod
+        </button>
+    </form>
+
+    <div id="box"></div>
+
+    <script>
+        let num1 = document.forms.myform.num1;
+        let num2 = document.forms.myform.num2;
+        let box = document.getElementById("box");
+
+        function sum()
+        {
+            box.innerHTML = (parseInt(num1.value)+parseInt(num2.value));
+        }
+
+        function sub()
+        {
+            box.innerHTML = (parseInt(num1.value)-parseInt(num2.value));
+        }
+
+        function mul()
+        {
+            box.innerHTML = (parseInt(num1.value)*parseInt(num2.value));
+        }
+
+        function div()
+        {
+            box.innerHTML = (parseInt(num1.value)/parseInt(num2.value));
+        }
+        function mod()
+        {
+            box.innerHTML = (parseInt(num1.value)%parseInt(num2.value));
+        }
+
+    </script>
+</body>
+</html>

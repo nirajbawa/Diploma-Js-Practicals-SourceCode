@@ -10,11 +10,13 @@
             e.preventDefault();
             alert("context menu is off");
         }
+    
         document.addEventListener('copy', (e) => copyOff(e))
         const copyOff = (e) =>{
             e.preventDefault();
             alert("copy text is not allowed")
         }
+      
         document.addEventListener('selectstart', (e)=>selectOff(e))
         const selectOff = (e) =>{
             e.preventDefault();
