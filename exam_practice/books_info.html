@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>books info</h1>
+    <table>
+        <thead>
+            <tr>
+                <td>book name</td>
+                <td >info</td>
+                <td >price</td>
+                <td >discount</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bookName">
+                <td>operating system</td>
+                <td>operating system book for msbte i scheme</td>
+                <td class="price">500 rs</td>
+                <td class="dis"></td>
+            </tr>
+            <tr class="bookName">
+                <td>software testing</td>
+                <td>software testing book for msbte i scheme</td> 
+                <td class="price">600 rs</td>
+                <td class="dis"></td>
+            </tr>
+            <tr class="bookName">
+                <td>advanced java</td>
+                <td>advanced java book for msbte i scheme</td> 
+                <td class="price">900 rs</td>
+                <td class="dis"></td>
+            </tr>
+            <tr class="bookName">
+                <td>clint side scripting</td>
+                <td>clint side scripting book for msbte i scheme</td> 
+                <td class="price">200 rs</td>
+                <td class="dis"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        let disCol = document.getElementsByClassName("dis");
+        let bookNames = document.getElementsByClassName("bookName");
+        let price = document.getElementsByClassName("price");
+        
+        for(let i = 0; i<bookNames.length; i++)
+        {
+            bookNames[i].addEventListener("mouseover", function(e)
+            {
+                disCol[i].innerHTML = (30/parseInt(price[i].innerHTML)*100) +"%"
+            })
+            bookNames[i].addEventListener("mouseout", function(e)
+            {
+                disCol[i].innerHTML = " "
+            })
+        }
+    </script>
+</body>
+</html>

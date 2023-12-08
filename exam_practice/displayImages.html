@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="myform">
+        <select name="ops" onchange="chImg(event)">
+            <option value="0">img1</option>
+            <option value="1">img2</option>
+            <option value="2">img3</option>
+        </select>
+    </form>
+
+    <center><img src="" id="img" alt="" height="20%" width="20%"></center>
+
+    <script>
+        let imgLinks = ["https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg", "https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-james-wheeler-414612.jpg&fm=jpg", "https://cdn.pixabay.com/photo/2013/07/21/13/00/rose-165819_640.jpg"];
+        
+        let img = document.images[0];
+
+        function chImg(e)
+        {
+            console.log(e.target.value)
+            img.src=imgLinks[parseInt(e.target.value)]
+        }
+    </script>
+</body>
+</html>

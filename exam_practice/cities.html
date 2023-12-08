@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td{
+            border: 2px solid black;
+            border-spacing: 0px;
+        }
+    </style>
+</head>
+<body>
+    <select onchange="showInfo(event)">
+        <option value="0">new Delhi</option>
+        <option value="1">mumbai</option>
+        <option value="2">bangolre</option>
+    </select>
+
+    <table >
+        <thead>
+            <tr>
+                <td>city name</td>
+                <td>info</td>
+                <td>image</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td id="cityName"></td>
+                <td id="info"></td>
+                <td id="img"><img src="" height="200px" width="200px" alt=""></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        let cityName = document.getElementById("cityName")
+        let info = document.getElementById("info")
+        let img = document.getElementById("img")
+        
+        let citys = [
+        {name:"newDelhi", info:"new dehli is capital of india since 1947 this is union teritory.", imgLink:"https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg"},
+        {name:"mumbai", info:"mumbai is financial and it is also hub of indian film industry capital of maharashtra.", imgLink:"https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-james-wheeler-414612.jpg&fm=jpg"},
+        {name:"bangolre", info:"bangolre is captial of karnataka and it is selicon valley of india, this city is also known as city of startups", imgLink:"https://cdn.pixabay.com/photo/2013/07/21/13/00/rose-165819_640.jpg"}     
+        ]
+
+        function showInfo(e)
+        {
+            cityName.innerText = citys[e.target.value].name;
+            info.innerText = citys[e.target.value].info;
+            img.firstElementChild.src = citys[e.target.value].imgLink;
+        }
+    </script>
+</body>
+</html>

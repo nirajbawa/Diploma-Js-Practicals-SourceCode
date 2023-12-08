@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="myform">
+        <input type="text" name="name" placeholder="name">
+        <input type="email" name="email" placeholder="email">
+        <input type="text" name="surname" placeholder="surname">
+        <button type="button" onclick="submit()">submit</button>
+        <button type="button" onclick="reset()">rest</button>
+        <button type="button" onclick="validateInfo()">send</button>
+    </form>
+
+    <script>
+
+        let name, email, surname;
+        
+        with(document.forms)
+        {
+            name = myform.name;
+            email = myform.email;
+            surname = myform.surname;
+        }
+
+        function validateInfo()
+        {
+            name.disabled = true;
+            email.readOnly = true;
+            surname.disabled = true;
+            name.style.backgroundColor = "red";
+            email.style.backgroundColor = "red";
+            surname.style.backgroundColor = "red";  
+
+            let result = email.value.split("@")
+            alert("new email is : "+result[0].concat("@msbte.com"))
+        }
+    </script>
+</body>
+</html>

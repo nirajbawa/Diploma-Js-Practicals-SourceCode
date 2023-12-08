@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openWin()">open window</button>
+    <script>
+        let win;
+        function openWin()
+        {
+            win = window.open("", "_blank", "height=100,width=100,top=50,left=50");
+            let h1 = win.document.createElement("h1")
+            h1.innerText = "hello"
+            win.document.body.appendChild(h1);
+        }
+    </script>
+</body>
+</html>
