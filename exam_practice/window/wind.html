@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="openwin()">open</button>
+    <script>
+        let win;
+        function openwin()
+        {
+            win = window.open("", "", "height=500,width=500,left=50,top=50");
+            let h1 = document.createElement("h1");
+            h1.innerHTML = "welcome";
+            h1.style.backgroundColor = "red";
+            win.document.body.appendChild(h1);
+        }
+    </script>
+</body>
+</html>
